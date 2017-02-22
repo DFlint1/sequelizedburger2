@@ -29,12 +29,20 @@ app.set("view engine", "handlebars");
 //link to burger controller, set as default page"/"
 var routes = require('./controllers/burger_controller.js');
 app.use('/', routes);
+
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync().then(function() {
+
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
- });
+});
+
+// db.sequelize.sync().then(function() {
+//   app.listen(PORT, function() {
+//     console.log("App listening on PORT " + PORT);
+//   });
+//  });
 //===========================uncomment out below
 
 // app.get('/burgers', function(req, res){
