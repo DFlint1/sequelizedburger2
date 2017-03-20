@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 .env
 npm-debut.log
+echo .env >> .gitignore
